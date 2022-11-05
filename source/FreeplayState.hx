@@ -217,7 +217,12 @@ class FreeplayState extends MusicBeatState
 		var text:FlxText = new FlxText(textBG.x - 230, textBG.y + 4, FlxG.width, leText, size);
 		text.setFormat(Paths.font("vcr.ttf"), size, FlxColor.WHITE, RIGHT);
 		add(text);
-		super.create();
+		
+		#if android
+		addVirtualPad(LEFT_FULL, A_B);
+		#end	
+		
+			super.create();
 	}
 
 	override function closeSubState() {
